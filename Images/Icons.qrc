@@ -1,0 +1,16 @@
+<RCC>
+  <qresource prefix="Icons">
+    <file>account-logout-128.png</file>
+    <file>arrow-down-16.png</file>
+    <file>arrow-down-128.png</file>
+    <file>icon2.png</file>
+    <file>icons8-gear-100.png</file>
+    <file>icons8-settings-100.png</file>
+    <file>maximize-window-128.png</file>
+    <file>menu-4-128.png</file>
+    <file>minus-7-128.png</file>
+    <file>plus-128.png</file>
+    <file>user-3-128.png</file>
+    <file>x-mark-24.png</file>
+  </qresource>
+</RCC>
