@@ -49,6 +49,10 @@ QPushButton:hover{
 
 }
 
+QPushButton:pressed{
+	background:#701600;
+}
+
 QLineEdit{
 	background:transparent;
 	border:none;
@@ -236,8 +240,6 @@ QLineEdit{
    </widget>
   </widget>
  </widget>
- <resources>
-  <include location="../Images/Icons.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
