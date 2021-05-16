@@ -557,7 +557,7 @@ QPushButton:pressed{
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>3</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1470,70 +1470,14 @@ font-size:36px;
                     <enum>QFrame::Raised</enum>
                    </property>
                    <layout class="QGridLayout" name="gridLayout_2">
-                    <property name="leftMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="topMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="rightMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="bottomMargin">
-                     <number>0</number>
-                    </property>
-                    <property name="spacing">
-                     <number>0</number>
-                    </property>
                     <item row="0" column="0">
-                     <widget class="QLabel" name="label__Full_Name">
-                      <property name="text">
-                       <string>Full Name:</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="0" column="1">
-                     <widget class="QLineEdit" name="lineEdit_Full_Name">
-                      <property name="sizePolicy">
-                       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                        <horstretch>0</horstretch>
-                        <verstretch>0</verstretch>
-                       </sizepolicy>
-                      </property>
-                      <property name="minimumSize">
-                       <size>
-                        <width>300</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>50</width>
-                        <height>16777215</height>
-                       </size>
-                      </property>
-                      <property name="inputMask">
-                       <string/>
-                      </property>
-                      <property name="text">
-                       <string/>
-                      </property>
-                      <property name="maxLength">
-                       <number>25</number>
-                      </property>
-                      <property name="placeholderText">
-                       <string>Full Name</string>
-                      </property>
-                     </widget>
-                    </item>
-                    <item row="1" column="0">
                      <widget class="QLabel" name="label_Id">
                       <property name="text">
                        <string>Id:</string>
                       </property>
                      </widget>
                     </item>
-                    <item row="1" column="1">
+                    <item row="0" column="1">
                      <widget class="QLineEdit" name="lineEdit_Id">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1567,7 +1511,7 @@ font-size:36px;
                       </property>
                      </widget>
                     </item>
-                    <item row="2" column="0">
+                    <item row="1" column="0">
                      <widget class="QLabel" name="label_Ethnicity">
                       <property name="font">
                        <font>
@@ -1588,7 +1532,7 @@ font-size:36px;
                       </property>
                      </widget>
                     </item>
-                    <item row="2" column="1">
+                    <item row="1" column="1">
                      <widget class="QComboBox" name="comboBox_Ethnicity">
                       <property name="maximumSize">
                        <size>
@@ -1633,14 +1577,14 @@ QAbstractItemView {
                       </item>
                      </widget>
                     </item>
-                    <item row="3" column="0">
+                    <item row="2" column="0">
                      <widget class="QLabel" name="label_age">
                       <property name="text">
                        <string>Age:</string>
                       </property>
                      </widget>
                     </item>
-                    <item row="3" column="1">
+                    <item row="2" column="1">
                      <widget class="QLineEdit" name="lineEdit_Age">
                       <property name="sizePolicy">
                        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
@@ -1674,14 +1618,14 @@ QAbstractItemView {
                       </property>
                      </widget>
                     </item>
-                    <item row="4" column="0">
+                    <item row="3" column="0">
                      <widget class="QLabel" name="label_Smokes">
                       <property name="text">
                        <string>Smokes:</string>
                       </property>
                      </widget>
                     </item>
-                    <item row="4" column="1">
+                    <item row="3" column="1">
                      <widget class="QRadioButton" name="radioButton_yes">
                       <property name="text">
                        <string>Yes</string>
@@ -1691,7 +1635,7 @@ QAbstractItemView {
                       </attribute>
                      </widget>
                     </item>
-                    <item row="4" column="2">
+                    <item row="3" column="2">
                      <widget class="QRadioButton" name="radioButton__no">
                       <property name="text">
                        <string>No</string>
@@ -1701,14 +1645,14 @@ QAbstractItemView {
                       </attribute>
                      </widget>
                     </item>
-                    <item row="5" column="0">
+                    <item row="4" column="0">
                      <widget class="QLabel" name="label_fever">
                       <property name="text">
                        <string>Fever:</string>
                       </property>
                      </widget>
                     </item>
-                    <item row="5" column="1">
+                    <item row="4" column="1">
                      <widget class="QRadioButton" name="radioButton_yes_2">
                       <property name="text">
                        <string>Yes</string>
@@ -1718,13 +1662,40 @@ QAbstractItemView {
                       </attribute>
                      </widget>
                     </item>
-                    <item row="5" column="2">
+                    <item row="4" column="2">
                      <widget class="QRadioButton" name="radioButton__no_2">
                       <property name="text">
                        <string>No</string>
                       </property>
                       <attribute name="buttonGroup">
                        <string notr="true">buttonGroup_Fever</string>
+                      </attribute>
+                     </widget>
+                    </item>
+                    <item row="5" column="0">
+                     <widget class="QLabel" name="label_pregnant">
+                      <property name="text">
+                       <string>Pregnant:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="5" column="1">
+                     <widget class="QRadioButton" name="radioButton_yes_3">
+                      <property name="text">
+                       <string>Yes</string>
+                      </property>
+                      <attribute name="buttonGroup">
+                       <string notr="true">buttonGroup_pregnant</string>
+                      </attribute>
+                     </widget>
+                    </item>
+                    <item row="5" column="2">
+                     <widget class="QRadioButton" name="radioButton__no_3">
+                      <property name="text">
+                       <string>No</string>
+                      </property>
+                      <attribute name="buttonGroup">
+                       <string notr="true">buttonGroup_pregnant</string>
                       </attribute>
                      </widget>
                     </item>
@@ -1825,13 +1796,23 @@ QAbstractItemView {
            <item>
             <widget class="QFrame" name="frame_Prognosis">
              <property name="styleSheet">
-              <string notr="true">*{
+              <string notr="true">
+*{
 	font-family:century gothic;
 	font-size:24px;
 	color: white;
 	font-weight: bold;
 }
-</string>
+
+
+QTextEdit{
+	
+	background:transparent;
+	border:1px solid;
+	color:white;
+	border-bottom:1px solid #717072;
+	border-radius:6px;
+}</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -1922,37 +1903,7 @@ font-size:36px;
               <item>
                <widget class="QFrame" name="frame_prognosis_content">
                 <property name="styleSheet">
-                 <string notr="true">*{
-	background-color: transparent;
-	outline:none;
-}
-QHeaderView::section:vertical{
-	background-color: rgb(103, 103, 103);
-}
-
-QHeaderView::verticalHeader{
-	background-color: rgb(103, 103, 103);
-}
-
-QHeaderView::section:horizontal
-{
-	font-size:25px;
-	background-color: rgb(103, 103, 103);
-}
-QTableWidget::horizontalHeader {	
-	background-color: rgb(33, 37, 43);
-}
-
-QTableWidget::item{
-	font-szie:22px;
-	
-}
-
-QTableWidget::item:selected{
-	
-	background-color: rgb(79, 79, 79);
-	outline:none;
-}</string>
+                 <string notr="true"/>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -1962,103 +1913,22 @@ QTableWidget::item:selected{
                 </property>
                 <layout class="QVBoxLayout" name="verticalLayout_15">
                  <item alignment="Qt::AlignHCenter">
-                  <widget class="QTableWidget" name="tableWidget_prognosis">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
+                  <widget class="QTextEdit" name="textEdit_prognosis">
                    <property name="minimumSize">
                     <size>
-                     <width>1000</width>
-                     <height>500</height>
+                     <width>800</width>
+                     <height>0</height>
                     </size>
                    </property>
                    <property name="maximumSize">
                     <size>
-                     <width>1000</width>
+                     <width>800</width>
                      <height>500</height>
                     </size>
                    </property>
-                   <property name="styleSheet">
-                    <string notr="true">*{
-	outline:none;
-}
-QHeaderView::section:vertical{
-	background-color: rgb(103, 103, 103);
-}
-
-QHeaderView::verticalHeader{
-	background-color: rgb(103, 103, 103);
-}
-
-QHeaderView::section:horizontal
-{
-	font-size:25px;
-	background-color: rgb(103, 103, 103);
-}
-QTableWidget::horizontalHeader {	
-	background-color: rgb(33, 37, 43);
-}
-
-QTableWidget::item{
-	font-szie:22px;
-	
-}
-
-QTableWidget::item:selected{
-	
-	background-color: rgb(79, 79, 79);
-	outline:none;
-}</string>
-                   </property>
-                   <property name="editTriggers">
-                    <set>QAbstractItemView::NoEditTriggers</set>
-                   </property>
-                   <property name="showGrid">
+                   <property name="readOnly">
                     <bool>true</bool>
                    </property>
-                   <attribute name="horizontalHeaderVisible">
-                    <bool>false</bool>
-                   </attribute>
-                   <attribute name="horizontalHeaderCascadingSectionResizes">
-                    <bool>false</bool>
-                   </attribute>
-                   <attribute name="horizontalHeaderDefaultSectionSize">
-                    <number>482</number>
-                   </attribute>
-                   <attribute name="horizontalHeaderMinimumSectionSize">
-                    <number>100</number>
-                   </attribute>
-                   <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-                    <bool>false</bool>
-                   </attribute>
-                   <attribute name="horizontalHeaderStretchLastSection">
-                    <bool>false</bool>
-                   </attribute>
-                   <attribute name="verticalHeaderVisible">
-                    <bool>false</bool>
-                   </attribute>
-                   <attribute name="verticalHeaderCascadingSectionResizes">
-                    <bool>false</bool>
-                   </attribute>
-                   <attribute name="verticalHeaderDefaultSectionSize">
-                    <number>80</number>
-                   </attribute>
-                   <attribute name="verticalHeaderMinimumSectionSize">
-                    <number>60</number>
-                   </attribute>
-                   <column>
-                    <property name="text">
-                     <string>Prognosis</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Treament</string>
-                    </property>
-                   </column>
                   </widget>
                  </item>
                 </layout>
@@ -2108,13 +1978,23 @@ QLineEdit{
            <item>
             <widget class="QFrame" name="frame_patient_history">
              <property name="styleSheet">
-              <string notr="true">*{
+              <string notr="true">
+*{
 	font-family:century gothic;
 	font-size:24px;
 	color: white;
 	font-weight: bold;
 }
-</string>
+
+
+QTextEdit{
+	
+	background:transparent;
+	border:1px solid;
+	color:white;
+	border-bottom:1px solid #717072;
+	border-radius:6px;
+}</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -2210,109 +2090,17 @@ font-size:36px;
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
-                <layout class="QGridLayout" name="gridLayout_3" rowstretch="0,0,0,0,0" columnminimumwidth="0,0,0,0,0,0">
-                 <property name="leftMargin">
-                  <number>10</number>
-                 </property>
-                 <property name="topMargin">
-                  <number>10</number>
-                 </property>
-                 <property name="rightMargin">
-                  <number>10</number>
-                 </property>
-                 <property name="bottomMargin">
-                  <number>10</number>
-                 </property>
-                 <property name="horizontalSpacing">
-                  <number>0</number>
-                 </property>
-                 <property name="verticalSpacing">
-                  <number>10</number>
-                 </property>
-                 <item row="1" column="1">
-                  <widget class="QLineEdit" name="lineEdit_Full_Name_2">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>300</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>50</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="inputMask">
-                    <string/>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="maxLength">
-                    <number>25</number>
-                   </property>
-                   <property name="readOnly">
-                    <bool>true</bool>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Full Name</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="0">
-                  <widget class="QLabel" name="label_Sex">
+                <layout class="QGridLayout" name="gridLayout_3">
+                 <item row="0" column="0">
+                  <widget class="QLabel" name="label_Id_search">
                    <property name="maximumSize">
                     <size>
                      <width>60</width>
-                     <height>16777215</height>
+                     <height>30</height>
                     </size>
                    </property>
                    <property name="text">
-                    <string>Sex:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="1">
-                  <widget class="QLineEdit" name="lineEdit_Full_Name_4">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="minimumSize">
-                    <size>
-                     <width>50</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>50</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="inputMask">
-                    <string/>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="maxLength">
-                    <number>1</number>
-                   </property>
-                   <property name="readOnly">
-                    <bool>true</bool>
-                   </property>
-                   <property name="placeholderText">
-                    <string/>
+                    <string>Id:</string>
                    </property>
                   </widget>
                  </item>
@@ -2353,119 +2141,7 @@ font-size:36px;
                    </property>
                   </widget>
                  </item>
-                 <item row="1" column="0">
-                  <widget class="QLabel" name="label_Name">
-                   <property name="text">
-                    <string>Name:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="4" column="0" colspan="6">
-                  <widget class="QTreeWidget" name="treeWidget_patient_history">
-                   <property name="styleSheet">
-                    <string notr="true">*{
-	background-color: transparent;
-	outline:none;
-}
-QHeaderView::section:vertical{
-	background-color: rgb(103, 103, 103);
-}
-
-QHeaderView::verticalHeader{
-	background-color: rgb(103, 103, 103);
-}
-
-QHeaderView::section:horizontal
-{
-	font-size:20px;
-	background-color: rgb(103, 103, 103);
-}
-QTreeWidget::horizontalHeader {	
-	background-color: rgb(33, 37, 43);
-}
-
-QTreeWidget::item:selected{
-	
-	background-color: rgb(79, 79, 79);
-	outline:none;
-}</string>
-                   </property>
-                   <attribute name="headerDefaultSectionSize">
-                    <number>150</number>
-                   </attribute>
-                   <column>
-                    <property name="text">
-                     <string>Date</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>WBC</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Neut(%)</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Lymph(%)</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>RBC</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>HCT(%)</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Urea(mg)</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Hb(mg)</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Creatinine</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Iron</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>HDL(mg)</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>AP</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Prognosis</string>
-                    </property>
-                   </column>
-                   <column>
-                    <property name="text">
-                     <string>Treatment</string>
-                    </property>
-                   </column>
-                  </widget>
-                 </item>
-                 <item row="0" column="3">
+                 <item row="0" column="2">
                   <widget class="QPushButton" name="btn_accept_2">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -2498,66 +2174,22 @@ QTreeWidget::item:selected{
                    </property>
                   </widget>
                  </item>
-                 <item row="0" column="0">
-                  <widget class="QLabel" name="label_Id_search">
-                   <property name="maximumSize">
-                    <size>
-                     <width>60</width>
-                     <height>30</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Id:</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="1">
-                  <widget class="QLineEdit" name="lineEdit_Full_Name_3">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
+                 <item row="1" column="1" colspan="2">
+                  <widget class="QTextEdit" name="textEdit_prognosis_2">
                    <property name="minimumSize">
                     <size>
-                     <width>50</width>
+                     <width>800</width>
                      <height>0</height>
                     </size>
                    </property>
                    <property name="maximumSize">
                     <size>
-                     <width>50</width>
-                     <height>16777215</height>
+                     <width>800</width>
+                     <height>500</height>
                     </size>
-                   </property>
-                   <property name="inputMask">
-                    <string/>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="maxLength">
-                    <number>3</number>
                    </property>
                    <property name="readOnly">
                     <bool>true</bool>
-                   </property>
-                   <property name="placeholderText">
-                    <string/>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="0">
-                  <widget class="QLabel" name="label_Age">
-                   <property name="maximumSize">
-                    <size>
-                     <width>100</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Age:</string>
                    </property>
                   </widget>
                  </item>
@@ -2584,5 +2216,6 @@ QTreeWidget::item:selected{
  <buttongroups>
   <buttongroup name="buttonGroup_Fever"/>
   <buttongroup name="buttonGroup_Smokes"/>
+  <buttongroup name="buttonGroup_pregnant"/>
  </buttongroups>
 </ui>
