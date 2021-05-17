@@ -7,7 +7,6 @@ def CheckRegistrationDetails(user_id, user_name, password1, password2,full_name)
     msg.setText("Error")
     msg.setWindowTitle("Error")
 
-
     #check user name
     if(not CheckUserName(user_name)):
         msg.setInformativeText('User Name Needs to be between 6 to 10 charcters and contains max 2 number')
@@ -36,6 +35,7 @@ def CheckRegistrationDetails(user_id, user_name, password1, password2,full_name)
         msg.setInformativeText('Name Length at least 5 charcters long.')
         msg.exec_()
         return False
+
     Register(user_id, user_name, password1,full_name)
     return True
 
@@ -114,7 +114,12 @@ def get_users_sheet():
 
 
 def CheckLoginDetails(user_id, user_name, password):
-    ws = get_users_sheet()
+    msg = QMessageBox()
+    msg.setIcon(QMessageBox.Critical)
+    msg.setText("Error")
+    msg.setWindowTitle("Error")
+
+    ws = get_users_sheet().active
     for i in range (1,ws.max_row+1):
         id1=ws['A'+str(i)].value
         name1=ws['B'+str(i)].value
@@ -123,13 +128,22 @@ def CheckLoginDetails(user_id, user_name, password):
         if id1==user_id:
             if name1==user_name:
                 if password==password1:
+                    msg.setIcon(QMessageBox.Information)
+                    msg.setText("Login Succefuly")
+                    msg.setWindowTitle("Login Succefuly")
+                    msg.exec_()
                     return True
                 else:
-
+                    msg.setInformativeText('Password is incorrect')
+                    msg.exec_()
                     return False
             else:
+                msg.setInformativeText('User Name is incorrect')
+                msg.exec_()
                 return False
 
+    msg.setInformativeText('Id is incorrect')
+    msg.exec_()
     return False
 
 
@@ -466,6 +480,5 @@ def APdiagnosis(person,diagnosis):
     elif (person["AP"] == "LOW") :
         diagnosis["Vitamin deficiency"] += 1
         diagnosis["Malnutrition"] += 1
-
 
 
