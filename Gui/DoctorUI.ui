@@ -557,7 +557,7 @@ QPushButton:pressed{
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -2214,8 +2214,8 @@ font-size:36px;
  </resources>
  <connections/>
  <buttongroups>
-  <buttongroup name="buttonGroup_Fever"/>
   <buttongroup name="buttonGroup_Smokes"/>
+  <buttongroup name="buttonGroup_Fever"/>
   <buttongroup name="buttonGroup_pregnant"/>
  </buttongroups>
 </ui>
