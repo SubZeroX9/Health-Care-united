@@ -153,25 +153,60 @@ def Register(user_id,user_name,password1,full_name):
     ws.active.append(row)
     ws.save("users.xlsx")
 
+def Check_Age_and_ID(dict):
+    msg = QMessageBox()
+    msg.setIcon(QMessageBox.Critical)
+    msg.setText("Error")
+    msg.setWindowTitle("Error")
+    if not dict["Id"].isdigit():
+        msg.setInformativeText('Id must be numeric')
+        msg.exec_()
+        return False
+    try:
+        dict["age"]=int(dict["age"])
+    except ValueError:
+        msg.setInformativeText('age must be numeric')
+        msg.exec_()
+        return False
+    if dict["age"]<=0:
+        msg.setInformativeText('age must be positive')
+        msg.exec_()
+        return False
+    return True
+
 
 def CheckDictionaryValues(dict):
     """
     :param dict: Contains the patient's values
     :return: True if all values are non-negative numbers
     """
-    names=list(dict.keys())
-    values=list(dict.values())
-    msg="Error - All values should be non-negative numbers. Incorrect values: "
-    flag=True
-    for i in range(0,len(values)):
-        if not values[i].isnumeric(): #if its not a number / negative :"-"
-            msg += names[i] + ","
-            flag = False
+    msg = QMessageBox()
+    msg.setIcon(QMessageBox.Critical)
+    msg.setText("Error")
+    msg.setWindowTitle("Error")
 
-    # if not flag: #ןf there are incorrect values- show mwssage
-    # #show msg
-
-    return flag
+    try:
+        dict["WBC"] = float(dict["WBC"])
+        dict["Neut"] = float(dict["Neut"])
+        dict["Lymph"] = float(dict["Lymph"])
+        dict["RBC"] = float(dict["RBC"])
+        dict["HCT"] = float(dict["HCT"])
+        dict["Urea"] = float(dict["Urea"])
+        dict["Hb"] = float(dict["Hb"])
+        dict["Creatinine"] = float(dict["Creatinine"])
+        dict["Iron"] = float(dict["Iron"])
+        dict["HDL"] = float(dict["HDL"])
+        dict["AP"] = float(dict["AP"])
+    except ValueError:
+        msg.setInformativeText('Value must be numeric')
+        msg.exec_()
+        return False
+    lst = list(filter(lambda x: x<0,dict.values()))
+    if len(lst) != 0:
+        msg.setInformativeText('Value must be not negative')
+        msg.exec_()
+        return False
+    return True
 
 
 def Return_LOWorHIGHorNORMAL(a,b,val):
@@ -218,7 +253,7 @@ def HCT(val,gender):
 
 
 def Urea(val,origin):
-    if(origin):
+    if origin == 'Middle-Eastren':
         a=18.7
         b=47.3
     else:
@@ -274,14 +309,14 @@ def HDL(val,gender,origin):
     else:
         a=29
         b=61
-    if(origin):
+    if origin == "Ethiopian":
         a*=1.2
         b*=1.2
     return Return_LOWorHIGHorNORMAL(a,b,val)
 
 
 def AP(val,origin):
-    if origin:
+    if origin == "Middle-Eastren":
         a=60
         b=120
     else:
@@ -363,11 +398,11 @@ def get_diagnosis_dict(person):
 
 
 def get_string_of_diagnosis_and_Treatment(diagnosis):
-    max = max(diagnosis.values())
-    if max==0:
+    max_value = max(diagnosis.values())
+    if max_value == 0:
         return "The tests are normal and you are a healthy person."
-    Main_diagnoses = list(map(lambda x: x[0], (filter(lambda x: x[1] == max, diagnosis.items()))))
-    Secondary_diagnoses=list(map(lambda x: x[0], (filter(lambda x: x[1] == max-1, diagnosis.items()))))
+    Main_diagnoses = list(map(lambda x: x[0], (filter(lambda x: x[1] == max_value, diagnosis.items()))))
+    Secondary_diagnoses=list(map(lambda x: x[0], (filter(lambda x: x[1] == max_value-0.5 or x[1] == max_value-1, diagnosis.items()))))
     ans=""
     for i in Main_diagnoses:
         ans+="Diagnoses: "+i+"\n" + "Treatment: "+Treatment_according_to_diagnosis(i)+"\n"
@@ -376,33 +411,33 @@ def get_string_of_diagnosis_and_Treatment(diagnosis):
         ans+="\nIn addition there are concerns:\n"
         for i in Secondary_diagnoses:
             ans += "Diagnoses: " + i + "\n" + "Treatment: " + Treatment_according_to_diagnosis(i) + "\n"
-
+    return ans
 
 def WBCdiagnosis(person,diagnosis):
-    if(person["WBC"]=="HIGH"):
-        if person["Fever"]:
+    if person["WBC"] == "HIGH":
+        if person["Fever"] == "Yes":
             diagnosis["Infection"]+=1
         else:
             diagnosis["Blood disease"] += 0.5
             diagnosis["Cancer"]+=0.5
-    elif(person["WBC"]=="LOW"):
+    elif person["WBC"] == "LOW":
         diagnosis["Cancer"] += 0.5
         diagnosis["Viral disease"] += 1
 
 
 def Nautdiagnosis(person,diagnosis):
-    if (person["Naut"] == "HIGH"):
+    if person["Neut"] == "HIGH":
         diagnosis["Infection"] += 1
-    elif (person["Naut"] == "LOW"):
+    elif person["Neut"] == "LOW":
         diagnosis["Cancer"] += 0.5
         diagnosis["Infection"] += 1
 
 
 def Lymphdiagnosis(person,diagnosis):
-    if (person["Naut"] == "HIGH"):
+    if person["Neut"] == "HIGH":
         diagnosis["Infection"] += 1
         diagnosis["Cancer"] += 1
-    elif (person["Naut"] == "LOW"):
+    elif person["Neut"] == "LOW":
         diagnosis["Disorder of blood formation / blood cells"] += 1
 
 
@@ -410,7 +445,7 @@ def RBCdiagnosis(person,diagnosis):
     if person["RBC"] == "HIGH":
         diagnosis["Disorder of blood formation / blood cells"] += 1
         diagnosis["Lung disease"] += 1
-        if person["smoker"]:
+        if person["smoker"] == "Yes":
             diagnosis["Smokers"] += 1
     elif (person["RBC"] == "LOW"):
         diagnosis["Anemia"] += 1
@@ -419,7 +454,7 @@ def RBCdiagnosis(person,diagnosis):
 
 def HCTdiagnosis(person,diagnosis):
     if person["HCT"] == "HIGH":
-        if person["smoker"]:
+        if person["smoker"] == "Yes":
             diagnosis["Smokers"] += 1
     elif (person["HCT"] == "LOW"):
         diagnosis["Anemia"] += 1
@@ -431,7 +466,7 @@ def Ureadiagnosis(person,diagnosis):
         diagnosis["Kidney disease"] += 1
         diagnosis["Dehydration"] += 1
         diagnosis["Diet"] += 1
-    elif (person["Urea"] == "LOW") and not person["pregnancy"]:
+    elif (person["Urea"] == "LOW") and  person["pregnancy"] == "No":
         diagnosis["Malnutrition"] += 1
         diagnosis["Diet"] += 1
         diagnosis["Liver disease"] += 1
@@ -459,7 +494,7 @@ def Irondiagnosis(person,diagnosis):
         diagnosis["Iron poisoning"] += 1
     elif (person["Iron"] == "LOW"):
         diagnosis["Iron deficiency"] += 1
-        if not person["pregnancy"]:
+        if person["pregnancy"] == "No":
             diagnosis["Bleeding"] += 1
             diagnosis["Malnutrition"] += 1
 
@@ -472,7 +507,7 @@ def HDLdiagnosis(person,diagnosis):
 
 
 def APdiagnosis(person,diagnosis):
-    if person["AP"] == "HIGH" and not person["pregnancy"]:
+    if person["AP"] == "HIGH" and  person["pregnancy"] == "No":
         diagnosis["Liver disease"] += 1
         diagnosis["Bile duct diseases"] += 1
         diagnosis["Hypothyroidism"] += 1

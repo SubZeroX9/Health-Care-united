@@ -10,7 +10,7 @@ class Login_Register_Window(qtw.QMainWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         ui_path = os.path.dirname(os.path.abspath(__file__))
-        self.ui = uic.loadUi(os.path.join(ui_path,"Login_RegisterForms.ui"), self)
+        self.ui = uic.loadUi(os.path.join(ui_path, "../Gui/Login_RegisterForms.ui"), self)
         self.setWindowFlags(qtc.Qt.FramelessWindowHint)
         self.setAttribute(qtc.Qt.WA_TranslucentBackground)
         self.Center()
@@ -18,10 +18,12 @@ class Login_Register_Window(qtw.QMainWindow):
 
         #Login page command connect
         self.ui.btn_close.clicked.connect(self.Exit_command)
+        self.ui.btn_minimise.clicked.connect(self.showMinimized)
         self.ui.RegisterBtn.clicked.connect(self.Register_command)
 
         #register page command connect
         self.ui.btn_close_2.clicked.connect(self.Exit_command)
+        self.ui.btn_minimise_2.clicked.connect(self.showMinimized)
         self.ui.RegisterBtn_2.clicked.connect(self.RegisterNewUser_command)
         self.ui.CancelBtn.clicked.connect(self.Cancel_command)
 
@@ -45,9 +47,15 @@ class Login_Register_Window(qtw.QMainWindow):
             msg.setWindowTitle("Registered Succefuly")
             msg.setInformativeText("Registered Succefuly")
             self.ui.stackedWidget.setCurrentIndex(0)
+            self.ui.UserNameLineEdit.clear()
+            self.ui.IdLineEdit.clear()
+            self.ui.PassLineEdit.clear()
 
 
     def Cancel_command(self):
+        self.ui.UserNameLineEdit.clear()
+        self.ui.IdLineEdit.clear()
+        self.ui.PassLineEdit.clear()
         self.ui.stackedWidget.setCurrentIndex(0)
 
     def Exit_command(self):

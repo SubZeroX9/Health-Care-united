@@ -143,7 +143,7 @@ QPushButton:pressed{
              </sizepolicy>
             </property>
             <property name="styleSheet">
-             <string notr="true"/>
+             <string notr="true">border-radius:8px</string>
             </property>
             <property name="text">
              <string/>
@@ -332,13 +332,13 @@ QPushButton:pressed{
         <widget class="QFrame" name="frame_left_menu">
          <property name="minimumSize">
           <size>
-           <width>0</width>
+           <width>70</width>
            <height>0</height>
           </size>
          </property>
          <property name="maximumSize">
           <size>
-           <width>70</width>
+           <width>50</width>
            <height>16777215</height>
           </size>
          </property>
@@ -415,19 +415,23 @@ QPushButton:pressed{
               <widget class="QPushButton" name="btn_home">
                <property name="minimumSize">
                 <size>
-                 <width>0</width>
+                 <width>50</width>
                  <height>40</height>
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true"/>
+                <string notr="true">text-align:left;
+background-repeat:none;
+background-position: center left;
+padding-left:16px;
+font-size:18px;</string>
                </property>
                <property name="text">
-                <string/>
+                <string>     HOME</string>
                </property>
                <property name="icon">
                 <iconset resource="../Images/Icons.qrc">
-                 <normaloff>:/Icons/home-7-128.png</normaloff>:/Icons/home-7-128.png</iconset>
+                 <normaloff>:/Icons/home-7-32.png</normaloff>:/Icons/home-7-32.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -441,24 +445,28 @@ QPushButton:pressed{
               <widget class="QPushButton" name="btn_new">
                <property name="minimumSize">
                 <size>
-                 <width>0</width>
+                 <width>50</width>
                  <height>40</height>
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true"/>
+                <string notr="true">text-align:left;
+background-repeat:none;
+background-position: center left;
+padding-left:16px;
+font-size:18px;</string>
                </property>
                <property name="text">
-                <string/>
+                <string>     New Patient</string>
                </property>
                <property name="icon">
-                <iconset>
-                 <normaloff>../Images/plus-128.png</normaloff>../Images/plus-128.png</iconset>
+                <iconset resource="../Images/Icons.qrc">
+                 <normaloff>:/Icons/plus-32.png</normaloff>:/Icons/plus-32.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
-                 <width>24</width>
-                 <height>24</height>
+                 <width>32</width>
+                 <height>32</height>
                 </size>
                </property>
               </widget>
@@ -467,19 +475,23 @@ QPushButton:pressed{
               <widget class="QPushButton" name="btn_patient_history">
                <property name="minimumSize">
                 <size>
-                 <width>0</width>
+                 <width>50</width>
                  <height>40</height>
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true"/>
+                <string notr="true">text-align:left;
+background-repeat:none;
+background-position: center left;
+padding-left:16px;
+font-size:18px;</string>
                </property>
                <property name="text">
-                <string/>
+                <string>     Patient History</string>
                </property>
                <property name="icon">
-                <iconset>
-                 <normaloff>../Images/user-3-128.png</normaloff>../Images/user-3-128.png</iconset>
+                <iconset resource="../Images/Icons.qrc">
+                 <normaloff>:/Icons/user-3-32.png</normaloff>:/Icons/user-3-32.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
@@ -526,24 +538,28 @@ QPushButton:pressed{
               <widget class="QPushButton" name="btn_Logout">
                <property name="minimumSize">
                 <size>
-                 <width>0</width>
+                 <width>50</width>
                  <height>40</height>
                 </size>
                </property>
                <property name="styleSheet">
-                <string notr="true"/>
+                <string notr="true">text-align:left;
+background-repeat:none;
+background-position: center left;
+padding-left:14px;
+font-size:18px;</string>
                </property>
                <property name="text">
-                <string/>
+                <string>     Log Out</string>
                </property>
                <property name="icon">
-                <iconset>
-                 <normaloff>../Images/account-logout-128.png</normaloff>../Images/account-logout-128.png</iconset>
+                <iconset resource="../Images/Icons.qrc">
+                 <normaloff>:/Icons/account-logout-32.png</normaloff>:/Icons/account-logout-32.png</iconset>
                </property>
                <property name="iconSize">
                 <size>
-                 <width>24</width>
-                 <height>24</height>
+                 <width>32</width>
+                 <height>32</height>
                 </size>
                </property>
               </widget>
@@ -579,9 +595,9 @@ QPushButton:pressed{
            <item>
             <widget class="QFrame" name="frame_Logo">
              <property name="styleSheet">
-              <string notr="true">background-image: url(:/Images/icon2.png);
-background-position: center;
-background-repeat: no-repeat;</string>
+              <string notr="true">background-image: url(:/Images/icon-removebg-preview.png);
+ background-repeat: no-repeat;
+ background-position: center;</string>
              </property>
              <property name="frameShape">
               <enum>QFrame::StyledPanel</enum>
@@ -1742,7 +1758,7 @@ QAbstractItemView {
                   <number>0</number>
                  </property>
                  <item>
-                  <widget class="QPushButton" name="btn_Finish">
+                  <widget class="QPushButton" name="btn_Continue">
                    <property name="sizePolicy">
                     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
                      <horstretch>0</horstretch>
@@ -1916,19 +1932,94 @@ font-size:36px;
                   <widget class="QTextEdit" name="textEdit_prognosis">
                    <property name="minimumSize">
                     <size>
-                     <width>800</width>
+                     <width>1000</width>
                      <height>0</height>
                     </size>
                    </property>
                    <property name="maximumSize">
                     <size>
-                     <width>800</width>
-                     <height>500</height>
+                     <width>1000</width>
+                     <height>1000</height>
                     </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">
+*{
+	font-family:century gothic;
+	font-size:16px;
+	color: white;
+	font-weight: bold;
+}</string>
                    </property>
                    <property name="readOnly">
                     <bool>true</bool>
                    </property>
+                  </widget>
+                 </item>
+                 <item alignment="Qt::AlignLeft|Qt::AlignBottom">
+                  <widget class="QFrame" name="frame_navigation_3">
+                   <property name="minimumSize">
+                    <size>
+                     <width>150</width>
+                     <height>50</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>150</width>
+                     <height>50</height>
+                    </size>
+                   </property>
+                   <property name="frameShape">
+                    <enum>QFrame::StyledPanel</enum>
+                   </property>
+                   <property name="frameShadow">
+                    <enum>QFrame::Raised</enum>
+                   </property>
+                   <layout class="QHBoxLayout" name="horizontalLayout_12">
+                    <property name="spacing">
+                     <number>0</number>
+                    </property>
+                    <property name="leftMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="topMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="rightMargin">
+                     <number>0</number>
+                    </property>
+                    <property name="bottomMargin">
+                     <number>0</number>
+                    </property>
+                    <item>
+                     <widget class="QPushButton" name="btn_Finish_2">
+                      <property name="sizePolicy">
+                       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                        <horstretch>0</horstretch>
+                        <verstretch>0</verstretch>
+                       </sizepolicy>
+                      </property>
+                      <property name="styleSheet">
+                       <string notr="true">*{
+	background-color: rgb(240, 47, 0);
+	border-radius:15px;
+}
+:hover{
+	color:white;
+	background:#B02300;
+}
+
+:pressed{
+	background:#701600;
+}</string>
+                      </property>
+                      <property name="text">
+                       <string>Finish</string>
+                      </property>
+                     </widget>
+                    </item>
+                   </layout>
                   </widget>
                  </item>
                 </layout>
@@ -2104,6 +2195,67 @@ font-size:36px;
                    </property>
                   </widget>
                  </item>
+                 <item row="0" column="3">
+                  <widget class="QPushButton" name="btn_find">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>148</width>
+                     <height>48</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">*{
+	background-color: rgb(240, 47, 0);
+	border-radius:15px;
+}
+:hover{
+	color:white;
+	background:#B02300;
+}
+
+:pressed{
+	background:#701600;
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Find</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="0" colspan="4" alignment="Qt::AlignHCenter">
+                  <widget class="QTextEdit" name="textEdit_prognosis_2">
+                   <property name="minimumSize">
+                    <size>
+                     <width>1000</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>0</width>
+                     <height>1000</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">
+*{
+	font-family:century gothic;
+	font-size:16px;
+	color: white;
+	font-weight: bold;
+}</string>
+                   </property>
+                   <property name="readOnly">
+                    <bool>true</bool>
+                   </property>
+                  </widget>
+                 </item>
                  <item row="0" column="1">
                   <widget class="QLineEdit" name="lineEdit_Id_2">
                    <property name="sizePolicy">
@@ -2138,58 +2290,6 @@ font-size:36px;
                    </property>
                    <property name="placeholderText">
                     <string>Id</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="2">
-                  <widget class="QPushButton" name="btn_accept_2">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>148</width>
-                     <height>48</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">*{
-	background-color: rgb(240, 47, 0);
-	border-radius:15px;
-}
-:hover{
-	color:white;
-	background:#B02300;
-}
-
-:pressed{
-	background:#701600;
-}</string>
-                   </property>
-                   <property name="text">
-                    <string>Find</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="1" colspan="2">
-                  <widget class="QTextEdit" name="textEdit_prognosis_2">
-                   <property name="minimumSize">
-                    <size>
-                     <width>800</width>
-                     <height>0</height>
-                    </size>
-                   </property>
-                   <property name="maximumSize">
-                    <size>
-                     <width>800</width>
-                     <height>500</height>
-                    </size>
-                   </property>
-                   <property name="readOnly">
-                    <bool>true</bool>
                    </property>
                   </widget>
                  </item>

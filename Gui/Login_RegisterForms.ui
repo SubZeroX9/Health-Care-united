@@ -175,6 +175,9 @@ QLineEdit{
          <property name="text">
           <string/>
          </property>
+         <property name="maxLength">
+          <number>8</number>
+         </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
@@ -194,6 +197,9 @@ QLineEdit{
          <property name="text">
           <string/>
          </property>
+         <property name="maxLength">
+          <number>10</number>
+         </property>
          <property name="echoMode">
           <enum>QLineEdit::Password</enum>
          </property>
@@ -212,6 +218,9 @@ QLineEdit{
          </property>
          <property name="text">
           <string/>
+         </property>
+         <property name="maxLength">
+          <number>9</number>
          </property>
          <property name="placeholderText">
           <string>Id</string>
@@ -490,6 +499,9 @@ QLineEdit{
          <property name="text">
           <string/>
          </property>
+         <property name="maxLength">
+          <number>8</number>
+         </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
          </property>
@@ -509,6 +521,9 @@ QLineEdit{
          <property name="text">
           <string/>
          </property>
+         <property name="maxLength">
+          <number>10</number>
+         </property>
          <property name="echoMode">
           <enum>QLineEdit::Password</enum>
          </property>
@@ -527,6 +542,9 @@ QLineEdit{
          </property>
          <property name="text">
           <string/>
+         </property>
+         <property name="maxLength">
+          <number>9</number>
          </property>
          <property name="placeholderText">
           <string>Your Id</string>
@@ -586,6 +604,9 @@ QLineEdit{
          <property name="text">
           <string/>
          </property>
+         <property name="maxLength">
+          <number>10</number>
+         </property>
          <property name="echoMode">
           <enum>QLineEdit::Password</enum>
          </property>
@@ -620,6 +641,9 @@ QLineEdit{
          </property>
          <property name="text">
           <string/>
+         </property>
+         <property name="maxLength">
+          <number>50</number>
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
