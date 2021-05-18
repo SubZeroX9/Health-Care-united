@@ -1,5 +1,12 @@
 <RCC>
   <qresource prefix="Icons">
+    <file>user-3-32.png</file>
+    <file>account-logout-32.png</file>
+    <file>plus-24.png</file>
+    <file>plus-32.png</file>
+    <file>home-7-24.png</file>
+    <file>home-7-32.png</file>
+    <file>restore-window-128.png</file>
     <file>home-7-128.png</file>
     <file>account-logout-128.png</file>
     <file>arrow-down-16.png</file>
@@ -272,6 +279,7 @@
     <file>x-mark-24.png</file>
   </qresource>
   <qresource prefix="Images">
+    <file>icon-removebg-preview.png</file>
     <file>icon2.png</file>
   </qresource>
 </RCC>
