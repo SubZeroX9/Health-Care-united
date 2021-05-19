@@ -1,6 +1,6 @@
 import openpyxl
 from PyQt5.QtWidgets import QMessageBox
-
+import datetime
 def CheckRegistrationDetails(user_id, user_name, password1, password2,full_name):
     msg = QMessageBox()
     msg.setIcon(QMessageBox.Critical)
@@ -27,13 +27,13 @@ def CheckRegistrationDetails(user_id, user_name, password1, password2,full_name)
 
     #check id
     if(not CheckID(user_id)):
-        msg.setInformativeText('Invalid User id: length 9 charcter only numbers or Id already registered.')
+        msg.setInformativeText('Invalid User id: length 9 character only numbers or Id already registered.')
         msg.exec_()
         return False
 
     #chack full name
     if(not CheckUserFullName(full_name)):
-        msg.setInformativeText('Name Length at least 5 charcters long.')
+        msg.setInformativeText('Name Length at least 5 characters long and contain only letters.')
         msg.exec_()
         return False
     Register(user_id, user_name, password1,full_name)
@@ -155,7 +155,7 @@ def CheckDictionaryValues(dict):
             flag = False
 
     # if not flag: #ןf there are incorrect values- show mwssage
-    # #show msg
+
 
     return flag
 
@@ -465,7 +465,7 @@ def APdiagnosis(person,diagnosis):
         diagnosis["Use of various drugs"] += 1
     elif (person["AP"] == "LOW") :
         diagnosis["Vitamin deficiency"] += 1
+        diagnosis["Vitamin deficiency"] += 1
         diagnosis["Malnutrition"] += 1
-
 
 
