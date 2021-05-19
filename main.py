@@ -1,4 +1,3 @@
-from Gui import *
 from PyQt5 import uic
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
@@ -17,8 +16,7 @@ class UI(qtw.QMainWindow):
         self.loginUi.show()
         self.loginUi.LoginBtn.clicked.connect(self.Login_command)
         self.DoctorUi.ui.btn_Logout.clicked.connect(self.LogOut)
-
-        app.exec_()
+        sys.exit(app.exec_())
 
 
     def Login_command(self):
@@ -30,9 +28,9 @@ class UI(qtw.QMainWindow):
             self.DoctorUi.show()
 
     def LogOut(self):
-        self.ui.UserNameLineEdit.clear()
-        self.ui.IdLineEdit.clear()
-        self.ui.PassLineEdit.clear()
+        self.loginUi.UserNameLineEdit.clear()
+        self.loginUi.IdLineEdit.clear()
+        self.loginUi.PassLineEdit.clear()
 
         self.DoctorUi.close()
         self.loginUi.show()

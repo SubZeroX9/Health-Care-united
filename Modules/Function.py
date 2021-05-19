@@ -43,7 +43,7 @@ def CheckRegistrationDetails(user_id, user_name, password1, password2,full_name)
 def CheckUserFullName(name):
     if len(name)<5:
         return False
-    if not name.isalpha():
+    if not all((x.isalpha() or x.isspace()) for x in name):
         return False
     return True
 
@@ -148,8 +148,8 @@ def CheckLoginDetails(user_id, user_name, password):
 
 
 def Register(user_id,user_name,password1,full_name):
-    ws = get_users_sheet().active
-    row=[user_id,user_name,password1,full_name]
+    ws = get_users_sheet()
+    row = [user_id, user_name, password1, full_name]
     ws.active.append(row)
     ws.save("users.xlsx")
 

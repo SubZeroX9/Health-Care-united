@@ -772,7 +772,6 @@ QSlider::handle:horizontal:pressed{
                       <property name="font">
                        <font>
                         <family>century gothic</family>
-                        <pointsize>-1</pointsize>
                         <weight>75</weight>
                         <bold>true</bold>
                         <underline>true</underline>
@@ -1033,7 +1032,6 @@ QAbstractItemView {
                       <property name="font">
                        <font>
                         <family>century gothic</family>
-                        <pointsize>-1</pointsize>
                         <weight>75</weight>
                         <bold>true</bold>
                        </font>
@@ -1358,6 +1356,13 @@ QRadioButton::indicator:unchecked {
            </property>
            <item>
             <widget class="QFrame" name="frame_content_2">
+             <property name="font">
+              <font>
+               <family>century gothic</family>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(45, 45, 45);</string>
              </property>
@@ -1385,6 +1390,13 @@ QRadioButton::indicator:unchecked {
               </property>
               <item>
                <widget class="QFrame" name="frame_mainbody_2">
+                <property name="font">
+                 <font>
+                  <family>century gothic</family>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
+                </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
                 </property>
@@ -1421,6 +1433,13 @@ QRadioButton::indicator:unchecked {
                      <height>55</height>
                     </size>
                    </property>
+                   <property name="font">
+                    <font>
+                     <family>century gothic</family>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
@@ -1448,7 +1467,6 @@ QRadioButton::indicator:unchecked {
                       <property name="font">
                        <font>
                         <family>century gothic</family>
-                        <pointsize>-1</pointsize>
                         <weight>75</weight>
                         <bold>true</bold>
                         <underline>true</underline>
@@ -1479,6 +1497,13 @@ font-size:36px;
                      <height>0</height>
                     </size>
                    </property>
+                   <property name="font">
+                    <font>
+                     <family>century gothic</family>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
+                   </property>
                    <property name="frameShape">
                     <enum>QFrame::StyledPanel</enum>
                    </property>
@@ -1488,6 +1513,13 @@ font-size:36px;
                    <layout class="QGridLayout" name="gridLayout_2">
                     <item row="0" column="0">
                      <widget class="QLabel" name="label_Id">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>Id:</string>
                       </property>
@@ -1513,6 +1545,13 @@ font-size:36px;
                         <height>16777215</height>
                        </size>
                       </property>
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="inputMask">
                        <string/>
                       </property>
@@ -1532,7 +1571,6 @@ font-size:36px;
                       <property name="font">
                        <font>
                         <family>century gothic</family>
-                        <pointsize>-1</pointsize>
                         <weight>75</weight>
                         <bold>true</bold>
                        </font>
@@ -1555,6 +1593,13 @@ font-size:36px;
                         <width>200</width>
                         <height>16777215</height>
                        </size>
+                      </property>
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
                       </property>
                       <property name="styleSheet">
                        <string notr="true">*{
@@ -1595,6 +1640,13 @@ QAbstractItemView {
                     </item>
                     <item row="2" column="0">
                      <widget class="QLabel" name="label_age">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>Age:</string>
                       </property>
@@ -1620,6 +1672,13 @@ QAbstractItemView {
                         <height>16777215</height>
                        </size>
                       </property>
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="inputMask">
                        <string/>
                       </property>
@@ -1636,6 +1695,13 @@ QAbstractItemView {
                     </item>
                     <item row="3" column="0">
                      <widget class="QLabel" name="label_Smokes">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>Smokes:</string>
                       </property>
@@ -1643,6 +1709,13 @@ QAbstractItemView {
                     </item>
                     <item row="3" column="1">
                      <widget class="QRadioButton" name="radioButton_yes">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>Yes</string>
                       </property>
@@ -1653,6 +1726,13 @@ QAbstractItemView {
                     </item>
                     <item row="3" column="2">
                      <widget class="QRadioButton" name="radioButton__no">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>No</string>
                       </property>
@@ -1663,6 +1743,13 @@ QAbstractItemView {
                     </item>
                     <item row="4" column="0">
                      <widget class="QLabel" name="label_fever">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>Fever:</string>
                       </property>
@@ -1670,6 +1757,13 @@ QAbstractItemView {
                     </item>
                     <item row="4" column="1">
                      <widget class="QRadioButton" name="radioButton_yes_2">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>Yes</string>
                       </property>
@@ -1680,6 +1774,13 @@ QAbstractItemView {
                     </item>
                     <item row="4" column="2">
                      <widget class="QRadioButton" name="radioButton__no_2">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>No</string>
                       </property>
@@ -1690,6 +1791,13 @@ QAbstractItemView {
                     </item>
                     <item row="5" column="0">
                      <widget class="QLabel" name="label_diarrhea">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>Diarrhea:</string>
                       </property>
@@ -1697,6 +1805,13 @@ QAbstractItemView {
                     </item>
                     <item row="5" column="1">
                      <widget class="QRadioButton" name="radioButton_yes_4">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>Yes</string>
                       </property>
@@ -1707,6 +1822,13 @@ QAbstractItemView {
                     </item>
                     <item row="5" column="2">
                      <widget class="QRadioButton" name="radioButton__no_4">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>No</string>
                       </property>
@@ -1717,6 +1839,13 @@ QAbstractItemView {
                     </item>
                     <item row="6" column="0">
                      <widget class="QLabel" name="label_vomiting">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>Vomiting:</string>
                       </property>
@@ -1724,6 +1853,13 @@ QAbstractItemView {
                     </item>
                     <item row="6" column="1">
                      <widget class="QRadioButton" name="radioButton_3">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>Yes</string>
                       </property>
@@ -1734,6 +1870,13 @@ QAbstractItemView {
                     </item>
                     <item row="6" column="2">
                      <widget class="QRadioButton" name="radioButton__no_5">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>No</string>
                       </property>
@@ -1744,6 +1887,13 @@ QAbstractItemView {
                     </item>
                     <item row="7" column="0">
                      <widget class="QLabel" name="label_pregnant">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>Pregnant:</string>
                       </property>
@@ -1751,6 +1901,13 @@ QAbstractItemView {
                     </item>
                     <item row="7" column="1">
                      <widget class="QRadioButton" name="radioButton_yes_3">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>Yes</string>
                       </property>
@@ -1761,6 +1918,13 @@ QAbstractItemView {
                     </item>
                     <item row="7" column="2">
                      <widget class="QRadioButton" name="radioButton__no_3">
+                      <property name="font">
+                       <font>
+                        <family>century gothic</family>
+                        <weight>75</weight>
+                        <bold>true</bold>
+                       </font>
+                      </property>
                       <property name="text">
                        <string>No</string>
                       </property>
@@ -1788,6 +1952,13 @@ QAbstractItemView {
                   <width>150</width>
                   <height>50</height>
                  </size>
+                </property>
+                <property name="font">
+                 <font>
+                  <family>century gothic</family>
+                  <weight>75</weight>
+                  <bold>true</bold>
+                 </font>
                 </property>
                 <property name="frameShape">
                  <enum>QFrame::StyledPanel</enum>
@@ -1818,6 +1989,13 @@ QAbstractItemView {
                      <horstretch>0</horstretch>
                      <verstretch>0</verstretch>
                     </sizepolicy>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>century gothic</family>
+                     <weight>75</weight>
+                     <bold>true</bold>
+                    </font>
                    </property>
                    <property name="styleSheet">
                     <string notr="true">*{
@@ -1947,7 +2125,6 @@ QTextEdit{
                    <property name="font">
                     <font>
                      <family>century gothic</family>
-                     <pointsize>-1</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                      <underline>true</underline>
@@ -2204,7 +2381,6 @@ QTextEdit{
                    <property name="font">
                     <font>
                      <family>century gothic</family>
-                     <pointsize>-1</pointsize>
                      <weight>75</weight>
                      <bold>true</bold>
                      <underline>true</underline>
@@ -2369,9 +2545,9 @@ font-size:36px;
  <connections/>
  <buttongroups>
   <buttongroup name="buttonGroup_pregnant"/>
+  <buttongroup name="buttonGroup_Vomiting"/>
   <buttongroup name="buttonGroup_Smokes"/>
   <buttongroup name="buttonGroup_Fever"/>
   <buttongroup name="buttonGroup_Diarrhea"/>
-  <buttongroup name="buttonGroup_Vomiting"/>
  </buttongroups>
 </ui>

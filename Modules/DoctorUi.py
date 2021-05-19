@@ -2,6 +2,9 @@ from PyQt5 import uic, QtGui
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
 import sys
+
+from PyQt5.QtWidgets import QMessageBox
+
 sys.path.append("..")
 import Modules.Icons_rc
 from Modules import *
@@ -11,8 +14,11 @@ from datetime import datetime
 class DoctorUi_Window(qtw.QMainWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        ui_path = os.path.dirname(os.path.abspath(__file__))
-        self.ui = uic.loadUi(os.path.join(ui_path,"../Gui/DoctorUi.ui"), self)
+        if getattr(sys, 'frozen', False):
+            ui_path = os.path.dirname(sys.executable) + "/Gui/DoctorUi.ui"
+        elif __file__:
+            ui_path = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/Gui/DoctorUi.ui"
+        self.ui = uic.loadUi(ui_path, self)
         self.setWindowFlags(qtc.Qt.FramelessWindowHint)
         self.setAttribute(qtc.Qt.WA_TranslucentBackground)
         self.Center()
@@ -117,10 +123,13 @@ class DoctorUi_Window(qtw.QMainWindow):
             self.ui.stackedWidget.setCurrentIndex(self.newpatientflag)
 
     def SavePatientfile(self):
-        filepath = str(os.getcwd()) + "/Patient History"
+        if getattr(sys, 'frozen', False):
+            filepath = os.path.dirname(sys.executable) + "/Patient History"
+        elif __file__:
+            filepath = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/Patient History"
         if not os.path.exists(filepath):
             os.mkdir(filepath)
-        full_path = completeName = os.path.join(filepath, self.dict["Id"] + ".txt")
+        full_path = os.path.join(filepath, self.dict["Id"] + ".txt")
         file = open(full_path, 'a')
         diagnosis = str(self.dict) + "\n"
         ConvertsValuesTo_LOW_HIGH_NORMAL(self.dict)
@@ -166,7 +175,10 @@ class DoctorUi_Window(qtw.QMainWindow):
     def FindPatient(self):
         Id = self.ui.lineEdit_Id_2.text()
         try:
-            filepath = str(os.getcwd()) + "/Patient History"
+            if getattr(sys, 'frozen', False):
+                filepath = os.path.dirname(sys.executable) + "/Patient History"
+            elif __file__:
+                filepath = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/Patient History"
             full_path = os.path.join(filepath, self.dict["Id"] + ".txt")
             file = open(full_path, 'r')
             self.ui.textEdit_prognosis_2.setText(file.read())
