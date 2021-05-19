@@ -573,7 +573,7 @@ font-size:18px;</string>
        <item>
         <widget class="QStackedWidget" name="stackedWidget">
          <property name="currentIndex">
-          <number>0</number>
+          <number>2</number>
          </property>
          <widget class="QWidget" name="page">
           <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1689,13 +1689,67 @@ QAbstractItemView {
                      </widget>
                     </item>
                     <item row="5" column="0">
+                     <widget class="QLabel" name="label_diarrhea">
+                      <property name="text">
+                       <string>Diarrhea:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="5" column="1">
+                     <widget class="QRadioButton" name="radioButton_yes_4">
+                      <property name="text">
+                       <string>Yes</string>
+                      </property>
+                      <attribute name="buttonGroup">
+                       <string notr="true">buttonGroup_Diarrhea</string>
+                      </attribute>
+                     </widget>
+                    </item>
+                    <item row="5" column="2">
+                     <widget class="QRadioButton" name="radioButton__no_4">
+                      <property name="text">
+                       <string>No</string>
+                      </property>
+                      <attribute name="buttonGroup">
+                       <string notr="true">buttonGroup_Diarrhea</string>
+                      </attribute>
+                     </widget>
+                    </item>
+                    <item row="6" column="0">
+                     <widget class="QLabel" name="label_vomiting">
+                      <property name="text">
+                       <string>Vomiting:</string>
+                      </property>
+                     </widget>
+                    </item>
+                    <item row="6" column="1">
+                     <widget class="QRadioButton" name="radioButton_3">
+                      <property name="text">
+                       <string>Yes</string>
+                      </property>
+                      <attribute name="buttonGroup">
+                       <string notr="true">buttonGroup_Vomiting</string>
+                      </attribute>
+                     </widget>
+                    </item>
+                    <item row="6" column="2">
+                     <widget class="QRadioButton" name="radioButton__no_5">
+                      <property name="text">
+                       <string>No</string>
+                      </property>
+                      <attribute name="buttonGroup">
+                       <string notr="true">buttonGroup_Vomiting</string>
+                      </attribute>
+                     </widget>
+                    </item>
+                    <item row="7" column="0">
                      <widget class="QLabel" name="label_pregnant">
                       <property name="text">
                        <string>Pregnant:</string>
                       </property>
                      </widget>
                     </item>
-                    <item row="5" column="1">
+                    <item row="7" column="1">
                      <widget class="QRadioButton" name="radioButton_yes_3">
                       <property name="text">
                        <string>Yes</string>
@@ -1705,7 +1759,7 @@ QAbstractItemView {
                       </attribute>
                      </widget>
                     </item>
-                    <item row="5" column="2">
+                    <item row="7" column="2">
                      <widget class="QRadioButton" name="radioButton__no_3">
                       <property name="text">
                        <string>No</string>
@@ -2314,8 +2368,10 @@ font-size:36px;
  </resources>
  <connections/>
  <buttongroups>
+  <buttongroup name="buttonGroup_pregnant"/>
   <buttongroup name="buttonGroup_Smokes"/>
   <buttongroup name="buttonGroup_Fever"/>
-  <buttongroup name="buttonGroup_pregnant"/>
+  <buttongroup name="buttonGroup_Diarrhea"/>
+  <buttongroup name="buttonGroup_Vomiting"/>
  </buttongroups>
 </ui>
