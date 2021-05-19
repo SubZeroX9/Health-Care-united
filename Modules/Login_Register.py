@@ -2,20 +2,30 @@ from PyQt5 import uic
 from PyQt5 import QtWidgets as qtw
 from PyQt5 import QtCore as qtc
 import sys
+import os
 sys.path.append("..")
 from Modules import *
 
 class Login_Register_Window(qtw.QMainWindow):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.ui = uic.loadUi("Login_RegisterForms.ui", self)
+        ui_path = os.path.dirname(os.path.abspath(__file__))
+        self.ui = uic.loadUi(os.path.join(ui_path, "../Gui/Login_RegisterForms.ui"), self)
         self.setWindowFlags(qtc.Qt.FramelessWindowHint)
         self.setAttribute(qtc.Qt.WA_TranslucentBackground)
-        self.ui.btn_close.clicked.connect(self.Exit_command)
-        self.ui.btn_close_2.clicked.connect(self.Exit_command)
-        self.ui.RegisterBtn.clicked.connect(self.Register_command)
         self.Center()
+        self.ui.stackedWidget.setCurrentIndex(0)
+
+        #Login page command connect
+        self.ui.btn_close.clicked.connect(self.Exit_command)
+        self.ui.btn_minimise.clicked.connect(self.showMinimized)
+        self.ui.RegisterBtn.clicked.connect(self.Register_command)
+
+        #register page command connect
+        self.ui.btn_close_2.clicked.connect(self.Exit_command)
+        self.ui.btn_minimise_2.clicked.connect(self.showMinimized)
         self.ui.RegisterBtn_2.clicked.connect(self.RegisterNewUser_command)
+        self.ui.CancelBtn.clicked.connect(self.Cancel_command)
 
     def Center(self):
         qr = self.frameGeometry()
@@ -31,9 +41,21 @@ class Login_Register_Window(qtw.QMainWindow):
         full_name = self.ui.FullNameLineEdit.text()
 
         if(CheckRegistrationDetails(user_id, user_name, password1, password2,full_name)):
+            msg = QMessageBox()
+            msg.setIcon(QMessageBox.Information)
+            msg.setText("Registered Succefuly")
+            msg.setWindowTitle("Registered Succefuly")
+            msg.setInformativeText("Registered Succefuly")
             self.ui.stackedWidget.setCurrentIndex(0)
+            self.ui.UserNameLineEdit.clear()
+            self.ui.IdLineEdit.clear()
+            self.ui.PassLineEdit.clear()
+
 
     def Cancel_command(self):
+        self.ui.UserNameLineEdit.clear()
+        self.ui.IdLineEdit.clear()
+        self.ui.PassLineEdit.clear()
         self.ui.stackedWidget.setCurrentIndex(0)
 
     def Exit_command(self):
@@ -42,7 +64,8 @@ class Login_Register_Window(qtw.QMainWindow):
     def Register_command(self):
         self.ui.stackedWidget.setCurrentIndex(1)
 
-    #def Login_command(self):
+
+
 
 if __name__ == '__main__':
     app = qtw.QApplication(sys.argv)
