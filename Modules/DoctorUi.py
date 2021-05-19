@@ -179,7 +179,7 @@ class DoctorUi_Window(qtw.QMainWindow):
                 filepath = os.path.dirname(sys.executable) + "/Patient History"
             elif __file__:
                 filepath = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/Patient History"
-            full_path = os.path.join(filepath, self.dict["Id"] + ".txt")
+            full_path = os.path.join(filepath, Id + ".txt")
             file = open(full_path, 'r')
             self.ui.textEdit_prognosis_2.setText(file.read())
 
