@@ -293,6 +293,7 @@ def Creatinine(val,age):
     return Return_LOWorHIGHorNORMAL(a,b,val)
 
 
+
 def Iron(val,gender):
     if gender=='F':
         a=48
@@ -483,9 +484,10 @@ def Hbdiagnosis(person,diagnosis):
 
 def Creatininediagnosis(person,diagnosis):
     if person["Creatinine"] == "HIGH":
-        diagnosis["Kidney disease"] += 1
-        diagnosis["Muscle diseases"] += 1
-        diagnosis["Increased consumption of meat"] += 1
+        if person["vomiting"]=="No" and person["diarrhea"]=="No":
+            diagnosis["Kidney disease"] += 1
+            diagnosis["Muscle diseases"] += 1
+            diagnosis["Increased consumption of meat"] += 1
     elif (person["Creatinine"] == "LOW") :
         diagnosis["Malnutrition"] += 1
 
