@@ -5,7 +5,9 @@ from PyQt5 import QtCore as qtc
 import sys, os
 sys.path.append("..")
 from Modules import *
-os.system('Pyrcc5 Images/Icons.qrc -o Modules/Icons_rc.py')
+file_path = str(os.getcwd()) + "/Modules/Icons_rc.py"
+if not os.path.exists(file_path):
+    os.system('Pyrcc5 Images/Icons.qrc -o Modules/Icons_rc.py')
 
 class UI(qtw.QMainWindow):
     def __init__(self, *args, **kwargs):
