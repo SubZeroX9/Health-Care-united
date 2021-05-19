@@ -46,6 +46,8 @@ class DoctorUi_Window(qtw.QMainWindow):
         self.ui.radioButton__no.setChecked(True)
         self.ui.radioButton__no_2.setChecked(True)
         self.ui.radioButton__no_3.setChecked(True)
+        self.ui.radioButton__no_4.setChecked(True)
+        self.ui.radioButton__no_5.setChecked(True)
 
         def moveWindow(e):
             if self.isMaximized() == False:
@@ -106,6 +108,9 @@ class DoctorUi_Window(qtw.QMainWindow):
         self.dict["smoker"] = self.ui.buttonGroup_Smokes.checkedButton().text()
         self.dict["Fever"] = self.ui.buttonGroup_Fever.checkedButton().text()
         self.dict["pregnancy"] = self.ui.buttonGroup_pregnant.checkedButton().text()
+        self.dict["diarrhea"] = self.ui.buttonGroup_Diarrhea.checkedButton().text()
+        self.dict["vomiting"] = self.ui.buttonGroup_Vomiting.checkedButton().text()
+
         if Check_Age_and_ID(self.dict):
             self.SavePatientfile()
             self.newpatientflag = 3
@@ -152,6 +157,8 @@ class DoctorUi_Window(qtw.QMainWindow):
         self.ui.radioButton__no.setChecked(True)
         self.ui.radioButton__no_2.setChecked(True)
         self.ui.radioButton__no_3.setChecked(True)
+        self.ui.radioButton__no_4.setChecked(True)
+        self.ui.radioButton__no_5.setChecked(True)
 
         # new patient prognosis page clear
         self.ui.textEdit_prognosis.clear()
@@ -160,8 +167,8 @@ class DoctorUi_Window(qtw.QMainWindow):
         Id = self.ui.lineEdit_Id_2.text()
         try:
             filepath = str(os.getcwd()) + "/Patient History"
-            full_path = completeName = os.path.join(filepath, self.dict["Id"] + ".txt")
-            file = open(full_path , 'r')
+            full_path = os.path.join(filepath, self.dict["Id"] + ".txt")
+            file = open(full_path, 'r')
             self.ui.textEdit_prognosis_2.setText(file.read())
 
         except FileNotFoundError:
