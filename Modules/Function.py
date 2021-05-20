@@ -1,4 +1,4 @@
-import openpyxl
+import openpyxl, sys, os
 from PyQt5.QtWidgets import QMessageBox
 
 def CheckRegistrationDetails(user_id, user_name, password1, password2,full_name):
@@ -108,8 +108,13 @@ def CheckPassword(password):
 
 
 def get_users_sheet():
-    file = "users.xlsx"
-    wb = openpyxl.load_workbook(filename=file)
+    if getattr(sys, 'frozen', False):
+        users_file = os.path.dirname(sys.executable) + "/users.xlsx"
+    elif __file__:
+        users_file = os.path.dirname(os.path.dirname(os.path.abspath(__file__))) + "/users.xlsx"
+    if not os.path.exists(users_file):
+        openpyxl.Workbook(users_file).save("users.xlsx")
+    wb = openpyxl.load_workbook(filename=users_file)
     return wb
 
 
@@ -174,18 +179,7 @@ def Check_Age_and_ID(dict):
         return False
     return True
 
-
-def CheckDictionaryValues(dict):
-    """
-    :param dict: Contains the patient's values
-    :return: True if all values are non-negative numbers
-    """
-
-    msg = QMessageBox()
-    msg.setIcon(QMessageBox.Critical)
-    msg.setText("Error")
-    msg.setWindowTitle("Error")
-
+def CheckDictionaryValues1(dict):
     try:
         dict["WBC"] = float(dict["WBC"])
         dict["Neut"] = float(dict["Neut"])
@@ -199,15 +193,38 @@ def CheckDictionaryValues(dict):
         dict["HDL"] = float(dict["HDL"])
         dict["AP"] = float(dict["AP"])
     except ValueError:
+        return 1
+    lst = list(filter(lambda x: x < 0, dict.values()))
+    if len(lst) != 0:
+        return 2
+    return 3
+
+def CheckDictionaryValues(dict):
+    """
+    :param dict: Contains the patient's values
+    :return: True if all values are non-negative numbers
+    """
+
+
+    flag = CheckDictionaryValues1(dict)
+
+    msg = QMessageBox()
+    msg.setIcon(QMessageBox.Critical)
+    msg.setText("Error")
+    msg.setWindowTitle("Error")
+
+    if flag == 1:
         msg.setInformativeText('Value must be numeric')
         msg.exec_()
         return False
-    lst = list(filter(lambda x: x<0,dict.values()))
-    if len(lst) != 0:
+    elif flag == 2:
         msg.setInformativeText('Value must be not negative')
         msg.exec_()
         return False
-    return True
+    else:
+        return True
+
+
 
 
 def Return_LOWorHIGHorNORMAL(a,b,val):
@@ -519,5 +536,4 @@ def APdiagnosis(person,diagnosis):
         diagnosis["Vitamin deficiency"] += 1
         diagnosis["Vitamin deficiency"] += 1
         diagnosis["Malnutrition"] += 1
-
 
