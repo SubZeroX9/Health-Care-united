@@ -31,7 +31,7 @@ class UI(qtw.QMainWindow):
         self.loginUi.UserNameLineEdit.clear()
         self.loginUi.IdLineEdit.clear()
         self.loginUi.PassLineEdit.clear()
-        self.DoctorUi.ui.stackedWidget.self.ui.stackedWidget.setCurrentIndex(0)
+        self.DoctorUi.ui.stackedWidget.setCurrentIndex(0)
         self.DoctorUi.newpatientflag = 1
         self.DoctorUi.ResetNewPatient()
         self.DoctorUi.close()
