@@ -5,5 +5,6 @@
 2. יובל אלוני 319122842
 
 
-to install download setup file and install
-run health care united exe file.
+to install:
+1. download setup file and install run health care united exe file
+2. dowload zup file and run health care united exe file
