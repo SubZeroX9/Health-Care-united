@@ -160,6 +160,7 @@ class DoctorUi_Window(qtw.QMainWindow):
         self.ui.lineEdit_AP.clear()
 
         # new patient second page clear
+        self.dict = {}
         self.ui.comboBox_Ethnicity.setCurrentIndex(0)
         self.ui.lineEdit_Id.clear()
         self.ui.lineEdit_Age.clear()
@@ -168,6 +169,7 @@ class DoctorUi_Window(qtw.QMainWindow):
         self.ui.radioButton__no_3.setChecked(True)
         self.ui.radioButton__no_4.setChecked(True)
         self.ui.radioButton__no_5.setChecked(True)
+        self.ui.radioButton_yes_3.setEnabled(True)
 
         # new patient prognosis page clear
         self.ui.textEdit_prognosis.clear()
