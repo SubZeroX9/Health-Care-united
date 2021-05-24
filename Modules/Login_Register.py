@@ -10,6 +10,9 @@ sys.path.append("..")
 from Modules import *
 
 class Login_Register_Window(qtw.QMainWindow):
+    """
+    class which contains Login Page and Register Page forms
+    """
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         if getattr(sys, 'frozen', False):
@@ -34,12 +37,19 @@ class Login_Register_Window(qtw.QMainWindow):
         self.ui.CancelBtn.clicked.connect(self.Cancel_command)
 
     def Center(self):
+        """
+        function to center the entire gui at the center of your screen.
+        """
         qr = self.frameGeometry()
         cp = qtw.QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
     def RegisterNewUser_command(self):
+        """
+            function to register a new user to the system checks if user exists or not if not creats a new one
+            else gives a massage according to the problem.
+        """
         user_id = self.ui.IdLineEdit_2.text()
         user_name = self.ui.UserNameLineEdit_2.text()
         password1 = self.ui.PassLineEdit_2.text()
@@ -57,21 +67,35 @@ class Login_Register_Window(qtw.QMainWindow):
             self.ui.IdLineEdit.clear()
             self.ui.PassLineEdit.clear()
 
-
     def Cancel_command(self):
+        """
+        a function to return to login page from register page with registaring a new user.
+        """
         self.ui.UserNameLineEdit.clear()
         self.ui.IdLineEdit.clear()
         self.ui.PassLineEdit.clear()
         self.ui.stackedWidget.setCurrentIndex(0)
 
+
     def Exit_command(self):
+        """
+            closes the system completly upon pressing the x button.
+        """
         self.close()
 
+
     def Register_command(self):
+        """
+            function to move from login page to register page.
+        """
         self.RegisterPageClean()
         self.ui.stackedWidget.setCurrentIndex(1)
 
+
     def RegisterPageClean(self):
+        """
+        a function to clean all the fields in the register page.
+        """
         self.ui.FullNameLineEdit.clear()
         self.ui.UserNameLineEdit_2.clear()
         self.ui.IdLineEdit_2.clear()

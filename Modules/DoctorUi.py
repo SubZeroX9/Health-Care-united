@@ -12,6 +12,9 @@ import os
 from datetime import datetime
 
 class DoctorUi_Window(qtw.QMainWindow):
+    """
+    class which contains the Gui for doctors Ui.
+    """
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         if getattr(sys, 'frozen', False):
@@ -56,6 +59,11 @@ class DoctorUi_Window(qtw.QMainWindow):
         self.ui.radioButton__no_5.setChecked(True)
 
         def moveWindow(e):
+            """
+
+            :param e: event parameter
+            this function moves the gui window
+            """
             if self.isMaximized() == False:
                 if e.buttons() == qtc.Qt.LeftButton:
                     self.move(self.pos() + e.globalPos() - self.clickPosition)
@@ -67,26 +75,51 @@ class DoctorUi_Window(qtw.QMainWindow):
 
 
     def Center(self):
+        """
+        this function centers the gui at the center of your screen.
+        :return:
+        """
         qr = self.frameGeometry()
         cp = qtw.QDesktopWidget().availableGeometry().center()
         qr.moveCenter(cp)
         self.move(qr.topLeft())
 
     def Exit_command(self):
+        """
+        this function closes the gui once x button is pressed.
+        :return:
+        """
         self.close()
 
     def OpenNewPatient(self):
+        """
+        this button open new patient page at the place it was left.
+        if it's a first time starts from first page.
+        :return:
+        """
         self.ui.stackedWidget.setCurrentIndex(self.newpatientflag)
 
     def OpenHomePage(self):
+        """
+        this function returns user to home page once pressed.
+        :return:
+        """
         self.ui.stackedWidget.setCurrentIndex(0)
 
     def OpenPatientHistorySearch(self):
+        """
+        this function opens patietn history page.
+        :return:
+        """
         self.ui.lineEdit_Id_2.clear()
         self.ui.textEdit_prognosis_2.clear()
         self.ui.stackedWidget.setCurrentIndex(4)
 
     def OpenQuestnier(self):
+        """
+        this function opens questnier page after pressing accept button from the new patient page.
+        :return:
+        """
         self.dict["WBC"] = self.ui.lineEdit_WBC.text()
         self.dict["Neut"] = self.ui.Slider_Neut.value()
         self.dict["Lymph"] = self.ui.Slider_Lymph.value()
@@ -108,6 +141,10 @@ class DoctorUi_Window(qtw.QMainWindow):
 
 
     def OpenPrognosis(self):
+        """
+        this function opens the treatment page after the questnier page.
+        :return:
+        """
         self.dict["Id"] = self.ui.lineEdit_Id.text()
         self.dict["origin"] = self.ui.comboBox_Ethnicity.currentText()
         self.dict["age"] = self.ui.lineEdit_Age.text()
@@ -123,6 +160,10 @@ class DoctorUi_Window(qtw.QMainWindow):
             self.ui.stackedWidget.setCurrentIndex(self.newpatientflag)
 
     def SavePatientfile(self):
+        """
+        thi function saves patient treatment and results into a text file.
+        :return:
+        """
         if getattr(sys, 'frozen', False):
             filepath = os.path.dirname(sys.executable) + "/Patient History"
         elif __file__:
@@ -140,11 +181,20 @@ class DoctorUi_Window(qtw.QMainWindow):
         file.close()
 
     def FinishPatientDiagnosis(self):
+        """
+        this function finishes the treatment page and goes back to home pages and calls for
+        reseting the new patient fields.
+        :return:
+        """
         self.ResetNewPatient()
         self.newpatientflag = 1
         self.ui.stackedWidget.setCurrentIndex(0)
 
     def ResetNewPatient(self):
+        """
+        This function resets new patient fields.
+        :return:
+        """
         #new patient first page clear
         self.ui.comboBox_Sex.setCurrentIndex(0)
         self.ui.Slider_Neut.setValue(50)
@@ -175,6 +225,10 @@ class DoctorUi_Window(qtw.QMainWindow):
         self.ui.textEdit_prognosis.clear()
 
     def FindPatient(self):
+        """
+        This function searches if a patients id history exsits in the system(tex file with id as a name).
+        :return:
+        """
         Id = self.ui.lineEdit_Id_2.text()
         try:
             if getattr(sys, 'frozen', False):
@@ -194,18 +248,34 @@ class DoctorUi_Window(qtw.QMainWindow):
             msg.exec_()
 
     def UpdateNeutLable(self):
+        """
+        this function updates value of the Neut Lable as the slider changes values.
+        :return:
+        """
         text = str(self.ui.Slider_Neut.value()) + "%"
         self.ui.label_Neut_value.setText(text)
 
     def UpdateLymphLable(self):
+        """
+            this function updates the value of the Lymph Lable as the slider changes values.
+            :return:
+        """
         text = str(self.ui.Slider_Lymph.value()) + "%"
         self.ui.label_Lymph_value.setText(text)
 
     def UpdateHCTLable(self):
+        """
+            this function updates the value of the HCT Lable as the slider changes values.
+            :return:
+        """
         text = str(self.ui.Slider_HCT.value()) + "%"
         self.ui.label_HCT_value.setText(text)
 
     def Expand_Decrease_menu(self):
+        """
+        this function is responsible for expanding and decreasing the left manue bar.
+        :return:
+        """
         width = self.ui.frame_left_menu.width()
         if width == 70:
             newwidth = 210
@@ -220,10 +290,19 @@ class DoctorUi_Window(qtw.QMainWindow):
 
 
     def mousePressEvent(self, event):
+        """
+        this function records mouse position on click.
+        :param event:
+        :return:
+        """
         self.clickPosition = event.globalPos()
 
 
     def restore_or_maximize_window(self):
+        """
+        this function is responsible to maximize and restore the gui.
+        :return:
+        """
         win_status = self.Window_size
         if win_status == 0:
             self.btn_restore.setIcon(QtGui.QIcon(":/Icons/restore-window-128.png"))

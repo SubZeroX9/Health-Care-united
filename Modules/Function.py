@@ -2,6 +2,15 @@ import openpyxl, sys, os
 from PyQt5.QtWidgets import QMessageBox
 
 def CheckRegistrationDetails(user_id, user_name, password1, password2,full_name):
+    """
+    this function checks each parm recived and return a boolean if the parm passes the cheack or not.
+    :param user_id:
+    :param user_name:
+    :param password1:
+    :param password2:
+    :param full_name:
+    :return: true if all parm checks passes false if one of theam fails.
+    """
     msg = QMessageBox()
     msg.setIcon(QMessageBox.Critical)
     msg.setText("Error")
@@ -41,6 +50,11 @@ def CheckRegistrationDetails(user_id, user_name, password1, password2,full_name)
 
 
 def CheckUserFullName(name):
+    """
+    this function checks that the name contains only charcters and no numbers or special charcters.
+    :param name:
+    :return: boolean according to if check pass or not.
+    """
     if len(name)<5:
         return False
     if not all((x.isalpha() or x.isspace()) for x in name):
@@ -89,6 +103,11 @@ def CheckUserName(user_name):
 
 
 def CheckPassword(password):
+    """
+    this function checks the password to be according to requirments.
+    :param password:
+    :return: boolean according if the check passes or not.
+    """
     if len(password)<8 or len(password)>10:
         return False
 
@@ -108,6 +127,10 @@ def CheckPassword(password):
 
 
 def get_users_sheet():
+    """
+    this function opens the users excel workbook or creates it if it doesn't exists
+    :return: the users opned workbook.
+    """
     if getattr(sys, 'frozen', False):
         users_file = os.path.dirname(sys.executable) + "/users.xlsx"
     elif __file__:
@@ -119,6 +142,14 @@ def get_users_sheet():
 
 
 def CheckLoginDetails(user_id, user_name, password):
+    """
+    this function checks that the parms prevoided matches the parms in the users file.
+    meaning checks if the login detail matches the a user in the users file.
+    :param user_id:
+    :param user_name:
+    :param password:
+    :return: boolean according if it passes all checks false if fails on eof theam.
+    """
     msg = QMessageBox()
     msg.setIcon(QMessageBox.Critical)
     msg.setText("Error")
@@ -153,12 +184,20 @@ def CheckLoginDetails(user_id, user_name, password):
 
 
 def Register(user_id,user_name,password1,full_name):
+    """"
+    this function saves the registration details to the users file.
+    """
     ws = get_users_sheet()
     row = [user_id, user_name, password1, full_name]
     ws.active.append(row)
     ws.save("users.xlsx")
 
 def Check_Age_and_ID(dict):
+    """
+    this function checks if the age and id are correct according to requiments.
+    :param dict:
+    :return: boolean true if passes all checks false if fails one of them.
+    """
     msg = QMessageBox()
     msg.setIcon(QMessageBox.Critical)
     msg.setText("Error")
@@ -180,6 +219,11 @@ def Check_Age_and_ID(dict):
     return True
 
 def CheckDictionaryValues1(dict):
+    """
+    this function recives a dictionary with values and converts them to floats.
+    :param dict:
+    :return: int 1 if one of the values could'nt be changed 2 if one of the values is lower then 0 and 3 if all passes ok.
+    """
     try:
         dict["WBC"] = float(dict["WBC"])
         dict["Neut"] = float(dict["Neut"])
@@ -228,6 +272,13 @@ def CheckDictionaryValues(dict):
 
 
 def Return_LOWorHIGHorNORMAL(a,b,val):
+    """
+    this fucntion returns Low HIGH or NORMAL as strings according to the value and it's boundaries.
+    :param a:
+    :param b:
+    :param val:
+    :return:
+    """
     if val < a:
         return "LOW"
     elif val > b:
@@ -237,6 +288,12 @@ def Return_LOWorHIGHorNORMAL(a,b,val):
 
 
 def WBC(val,age):
+    """
+    this function  returns  if the value of WBC is LOW HIGH or NORMAL according to values and age
+    :param val:
+    :param age:
+    :return: string between LOW/HIGH/NORMAL.
+    """
     if age >=18:
         a=4500
         b=11000
@@ -251,16 +308,37 @@ def WBC(val,age):
 
 
 def Naut(val):
+    """
+    this function  returns  if the value of Neut is LOW HIGH or NORMAL.
+    :param val:
+    :return: string between LOW/HIGH/NORMAL.
+    """
     return Return_LOWorHIGHorNORMAL(28,54,val)
 
 
 def Lymph(val):
+    """
+    this function returns if the value of Lymph is LOW HIGH or NORMAL
+    :param val:
+    :return: string between LOW/HIGH/NORMAL.
+    """
     return Return_LOWorHIGHorNORMAL(36,52,val)
 
 def RBC(val):
+    """
+    this function returns if the value of RBC is LOW HIGH or NORMAL
+    :param val:
+    :return: string between LOW/HIGH/NORMAL.
+    """
     return Return_LOWorHIGHorNORMAL(4.5,6,val)
 
 def HCT(val,gender):
+    """
+    this function returns if the value of RBC is LOW/HIGH/NORMAL according to the value and the gender.
+    :param val:
+    :param gender:
+    :return: string between LOW/HIGH/NORMAL.
+    """
     if gender== "F":
         a=33
         b=47
@@ -271,6 +349,12 @@ def HCT(val,gender):
 
 
 def Urea(val,origin):
+    """
+    this function returns if the value of Urea is LOW/HIGH/NORMAL according to the value and the origin.
+    :param val:
+    :param origin:
+    :return: string between LOW/HIGH/NORMAL.
+    """
     if origin == 'Middle-Eastren':
         a=18.7
         b=47.3
@@ -282,6 +366,13 @@ def Urea(val,origin):
 
 
 def Hb(val,age,gender):
+    """
+    this function returns if the value of Hb is LOW/HIGH/NORMAL according to the value , age and gender.
+    :param val:
+    :param age:
+    :param gender:
+    :return: string between LOW/HIGH/NORMAL.
+    """
     if age<=17:
         a=11.5
         b=15.5
@@ -295,6 +386,12 @@ def Hb(val,age,gender):
 
 
 def Creatinine(val,age):
+    """
+    this function returns if the value of Creatinine is LOW/HIGH/NORMAL according to the value and age.
+    :param val:
+    :param age:
+    :return: string between LOW/HIGH/NORMAL.
+    """
     if age<=2:
         a=0.2
         b=0.5
@@ -312,6 +409,12 @@ def Creatinine(val,age):
 
 
 def Iron(val,gender):
+    """
+    this function returns if the value of Iron is LOW/HIGH/NORMAL according to the value and gender.
+    :param val:
+    :param gender:
+    :return: string between LOW/HIGH/NORMAL.
+    """
     if gender=='F':
         a=48
         b=128
@@ -322,6 +425,13 @@ def Iron(val,gender):
 
 
 def HDL(val,gender,origin):
+    """
+    this function returns if the value of HDL is LOW/HIGH/NORMAL according to the value,origin and gender.
+    :param val:
+    :param gender:
+    :param origin:
+    :return: string between LOW/HIGH/NORMAL.
+    """
     if gender=='F':
         a=34
         b=82
@@ -335,6 +445,12 @@ def HDL(val,gender,origin):
 
 
 def AP(val,origin):
+    """
+    this function returns if the value of AP is LOW/HIGH/NORMAL according to the value and origin.
+    :param val:
+    :param origin:
+    :return: string between LOW/HIGH/NORMAL.
+    """
     if origin == "Middle-Eastren":
         a=60
         b=120
@@ -345,6 +461,11 @@ def AP(val,origin):
 
 
 def ConvertsValuesTo_LOW_HIGH_NORMAL(dict):
+    """
+    this function takes the dictionary and converts all the values to LOW/HIGH/NORMAL
+    :param dict:
+    :return:
+    """
     age=dict["age"]
     gender=dict["gender"]
     origin=dict["origin"]
@@ -363,6 +484,11 @@ def ConvertsValuesTo_LOW_HIGH_NORMAL(dict):
 
 
 def Treatment_according_to_diagnosis(diagnosis):
+    """
+    this function returns treatment according to the diagnosis.
+    :param diagnosis:
+    :return: string of the treatment of the diagnosis.
+    """
     dict={"Anemia":"Two pills of 10 mg of B12 a day for a month",
           "Diet":"To coordinate an appointment with a nutritionist",
           "Bleeding":"To be evacuated urgently to the hospital",
@@ -396,6 +522,11 @@ def Treatment_according_to_diagnosis(diagnosis):
 
 
 def get_diagnosis_dict(person):
+    """
+    this function does the diagnosis for a person.
+    :param person:
+    :return: dictionary of the diagnosis.
+    """
     diagnosis={"Anemia":0,"Diet":0,"Bleeding":0,"Hyperlipidemia (blood lipids)":0,"Disorder of blood formation / blood cells":0,"Hematologic disorder":0,"Iron poisoning":0,
                "Dehydration":0,"Infection":0,"Vitamin deficiency":0,"Viral disease":0,"Bile duct diseases":0,"Heart disease":0,"Blood disease":0,"Liver disease":0,"Kidney disease":0,
                "Iron deficiency":0,"Muscle diseases":0,"Smokers":0,"Lung disease":0,"Hypothyroidism":0,"Adult diabetes":0,"Cancer":0,"Increased consumption of meat":0,
@@ -417,6 +548,11 @@ def get_diagnosis_dict(person):
 
 
 def get_string_of_diagnosis_and_Treatment(diagnosis):
+    """
+    this function makes a string with a diagnosis and treatment.
+    :param diagnosis:
+    :return: string of diagnosis and treatment.
+    """
     max_value = max(diagnosis.values())
     if max_value == 0:
         return "The tests are normal and you are a healthy person."
@@ -433,6 +569,12 @@ def get_string_of_diagnosis_and_Treatment(diagnosis):
     return ans
 
 def WBCdiagnosis(person,diagnosis):
+    """
+    this function increases the diagnosis key value according to the persons WBC rate
+    :param person:
+    :param diagnosis:
+    :return:
+    """
     if person["WBC"] == "HIGH":
         if person["Fever"] == "Yes":
             diagnosis["Infection"]+=1
@@ -445,6 +587,12 @@ def WBCdiagnosis(person,diagnosis):
 
 
 def Nautdiagnosis(person,diagnosis):
+    """
+    this function increases the diagnosis key value according to the persons Neut rate
+    :param person:
+    :param diagnosis:
+    :return:
+    """
     if person["Neut"] == "HIGH":
         diagnosis["Infection"] += 1
     elif person["Neut"] == "LOW":
@@ -453,6 +601,12 @@ def Nautdiagnosis(person,diagnosis):
 
 
 def Lymphdiagnosis(person,diagnosis):
+    """
+    this function increases the diagnosis key value according to the persons Lymph rate
+    :param person:
+    :param diagnosis:
+    :return:
+    """
     if person["Neut"] == "HIGH":
         diagnosis["Infection"] += 1
         diagnosis["Cancer"] += 1
@@ -461,6 +615,12 @@ def Lymphdiagnosis(person,diagnosis):
 
 
 def RBCdiagnosis(person,diagnosis):
+    """
+    this function increases the diagnosis key value according to the persons RBC rate
+    :param person:
+    :param diagnosis:
+    :return:
+    """
     if person["RBC"] == "HIGH":
         diagnosis["Disorder of blood formation / blood cells"] += 1
         diagnosis["Lung disease"] += 1
@@ -472,6 +632,12 @@ def RBCdiagnosis(person,diagnosis):
 
 
 def HCTdiagnosis(person,diagnosis):
+    """
+    this function increases the diagnosis key value according to the persons HCT rate
+    :param person:
+    :param diagnosis:
+    :return:
+    """
     if person["HCT"] == "HIGH":
         if person["smoker"] == "Yes":
             diagnosis["Smokers"] += 1
@@ -481,6 +647,12 @@ def HCTdiagnosis(person,diagnosis):
 
 
 def Ureadiagnosis(person,diagnosis):
+    """
+    this function increases the diagnosis key value according to the persons Urea rate
+    :param person:
+    :param diagnosis:
+    :return:
+    """
     if person["Urea"] == "HIGH":
         diagnosis["Kidney disease"] += 1
         diagnosis["Dehydration"] += 1
@@ -492,6 +664,12 @@ def Ureadiagnosis(person,diagnosis):
 
 
 def Hbdiagnosis(person,diagnosis):
+    """
+    this function increases the diagnosis key value according to the persons Hb rate
+    :param person:
+    :param diagnosis:
+    :return:
+    """
     if person["Hb"] == "LOW" :
         diagnosis["Anemia"] += 1
         diagnosis["Hematologic disorder"] += 1
@@ -500,6 +678,12 @@ def Hbdiagnosis(person,diagnosis):
 
 
 def Creatininediagnosis(person,diagnosis):
+    """
+    this function increases the diagnosis key value according to the persons Creatinine rate
+    :param person:
+    :param diagnosis:
+    :return:
+    """
     if person["Creatinine"] == "HIGH":
         if person["vomiting"]=="No" and person["diarrhea"]=="No":
             diagnosis["Kidney disease"] += 1
@@ -510,6 +694,12 @@ def Creatininediagnosis(person,diagnosis):
 
 
 def Irondiagnosis(person,diagnosis):
+    """
+    this function increases the diagnosis key value according to the persons Iron rate
+    :param person:
+    :param diagnosis:
+    :return:
+    """
     if person["Iron"] == "HIGH":
         diagnosis["Iron poisoning"] += 1
     elif (person["Iron"] == "LOW"):
@@ -520,6 +710,12 @@ def Irondiagnosis(person,diagnosis):
 
 
 def HDLdiagnosis(person,diagnosis):
+    """
+    this function increases the diagnosis key value according to the persons HDL rate
+    :param person:
+    :param diagnosis:
+    :return:
+    """
     if (person["HDL"] == "LOW"):
         diagnosis["Heart disease"] += 1
         diagnosis["Hyperlipidemia (blood lipids)"] += 1
@@ -527,6 +723,12 @@ def HDLdiagnosis(person,diagnosis):
 
 
 def APdiagnosis(person,diagnosis):
+    """
+    this function increases the diagnosis key value according to the persons AP rate
+    :param person:
+    :param diagnosis:
+    :return:
+    """
     if person["AP"] == "HIGH" and  person["pregnancy"] == "No":
         diagnosis["Liver disease"] += 1
         diagnosis["Bile duct diseases"] += 1
