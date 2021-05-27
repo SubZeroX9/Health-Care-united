@@ -55,7 +55,8 @@ class Function_Test(unittest.TestCase):
         self.assertEqual(Function.Naut(55), "HIGH")
 
     def test_Lymph(self):
-        self.assertEqual(Function.Lymph(40), "NORMAL")
+        self.assertEqual(Function.Lymph(53), "NORMAL")
+        self.assertEqual(Function.Lymph(36), "NORMAL")
         self.assertEqual(Function.Lymph(35), "LOW")
         self.assertEqual(Function.Lymph(53), "HIGH")
 
