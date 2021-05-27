@@ -212,8 +212,8 @@ def Check_Age_and_ID(dict):
         msg.setInformativeText('age must be numeric')
         msg.exec_()
         return False
-    if dict["age"]<=0:
-        msg.setInformativeText('age must be positive')
+    if dict["age"]<=0 or dict["age"]>120:
+        msg.setInformativeText('age must be in range (0,120]')
         msg.exec_()
         return False
     return True
